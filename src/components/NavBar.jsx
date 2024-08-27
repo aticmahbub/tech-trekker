@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('Linkght');
 
     const handleToggleTheme = (e) =>{
         if(e.target.checked){
@@ -19,15 +20,15 @@ const NavBar = () => {
         document.querySelector('html').setAttribute('data-theme', localTheme)
     } ,[theme])
     return (
-        <div className=" bg-base-100 shadow-lg px-4 z-10 fixed">
+        <div className="navbar  bg-base-100 shadow-lg px-4 z-10 sticky">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">Tech Trekker</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
-            <li><a className='font-bold'>Home</a></li>
-            <li><a className='font-bold text-primary'>Blogs</a></li>
-            <li><a className='font-bold'>Bookmarks</a></li>
+            <Link to='/'><a className='font-bold'>Home</a></Link>
+            <Link to='/blogs'><a className='font-bold text-primary'>Blogs</a></Link>
+            <Link to='/bookmarks'><a className='font-bold'>Bookmarks</a></Link>
           </ul>
           <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
