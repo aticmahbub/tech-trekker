@@ -1,11 +1,10 @@
-import React from 'react';
-import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
-
+import wave from '../assets/wave.svg'
 const Home = () => {
     return (
-        <div>
+        <div className='relative flex flex-col justify-center items-center min-h-[calc(100vh-116px)]'>
             <Banner/>
+            <img className='absolute bottom-0 w-full' src={wave} alt="" />
         </div>
     );
 };
