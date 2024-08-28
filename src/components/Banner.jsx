@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="hero-content text-center">
                 <div className="max-w-xl">
                     <h1 className="text-5xl font-bold">Welcome to <span className=' font-bold bg-gradient-to-r from-primary via-blue-500 to-secondary text-transparent bg-clip-text animate-gradient bg-300%'>Tech Trekker</span></h1>
-                    <p className="py-6">
+                    <p className=" py-6">
                         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                         quasi. In deleniti eaque aut repudiandae et a id nisi.
                     </p>
@@ -28,6 +28,8 @@ const Banner = () => {
                         </Link>
 
                     </div>
+
+                    
                 </div>
             </div>
         </div>
