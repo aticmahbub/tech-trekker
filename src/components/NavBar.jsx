@@ -20,7 +20,7 @@ const NavBar = () => {
         document.querySelector('html').setAttribute('data-theme', localTheme)
     } ,[theme])
     return (
-        <div className="navbar  bg-base-100 shadow-lg px-4 z-10 sticky">
+        <div className="navbar sm:px-8 bg-base-100 shadow-lg px-4 z-10 sticky">
         <div className="flex-1">
           <Link to='/' className="btn btn-ghost text-xl">Tech Trekker</Link>
         </div>
