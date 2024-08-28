@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -22,13 +22,19 @@ const NavBar = () => {
     return (
         <div className="navbar  bg-base-100 shadow-lg px-4 z-10 sticky">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Tech Trekker</a>
+          <Link to='/' className="btn btn-ghost text-xl">Tech Trekker</Link>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            <Link to='/'><a className='font-bold'>Home</a></Link>
-            <Link to='/blogs'><a className='font-bold text-primary'>Blogs</a></Link>
-            <Link to='/bookmarks'><a className='font-bold'>Bookmarks</a></Link>
+          <ul className=" menu menu-horizontal px-1 hidden sm:flex items-center gap-5">
+            <NavLink
+            className={({isActive})=>isActive? 'font-bold text-primary': 'font-bold'}
+            to='/'><a className=''>Home</a></NavLink>
+            <NavLink
+            className={({isActive})=>isActive? 'font-bold text-primary': 'font-bold'}
+            to='/blogs'><a className=' '>Blogs</a></NavLink>
+            <NavLink
+            className={({isActive})=>isActive? 'font-bold text-primary': 'font-bold'}
+            to='/bookmarks'><a className=''>Bookmarks</a></NavLink>
           </ul>
           <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
