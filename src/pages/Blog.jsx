@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
-
+import { MdBookmarkAdd } from 'react-icons/md'
+import { saveBlog } from '../utils';
 const Blog = () => {
 
     const blog = useLoaderData();
     const { comments_count, reading_time_minutes, title, published_at, public_reactions_count, tags
     } = blog
-
     const [tabIndex, setTabIndex] = useState(0);
+
+    const handleBookmarkAdd = blog =>{
+        saveBlog(blog)
+    }
     return (
         <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
             <article className="space-y-8 dark:bg-gray-100 dark:text-gray-900">
@@ -40,12 +44,16 @@ const Blog = () => {
                             </svg>
                             <span>Author</span>
                         </Link>
+                        {/* bookmark button */}
+                        <div 
+                        onClick={()=> handleBookmarkAdd(blog)}
+                        className='bg-primary p-3 ml-5 rounded-full hover:bg-opacity-30 bg-opacity-20 cursor-pointer hover:scale-105 overflow-hidden'>
+                            <MdBookmarkAdd size={20} className='text-secondary'/>
+                        </div>
                     </div>
 
                 </div>
-                <div className="dark:text-gray-800">
-                    <p>Insert the actual text content here...</p>
-                </div>
+
             </article>
             <Outlet></Outlet>
             <div>
@@ -53,7 +61,9 @@ const Blog = () => {
                 <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
                     {
                         tags.map((tag, index) => (
-                            <a rel="noopener noreferrer" href="#" className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50">
+                            <a 
+                            key={index}
+                            rel="noopener noreferrer" href="#" className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50">
                                 #{tag}
                             </a>
                         ))
