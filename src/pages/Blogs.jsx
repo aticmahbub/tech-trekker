@@ -21,6 +21,7 @@ const Blogs = () => {
                         <p>{blogs[0].description}</p>
                     </div>
                 </Link>
+                {/* blogs */}
                 <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {
                         blogs.slice(1, 19).map((blog, index)=>(
