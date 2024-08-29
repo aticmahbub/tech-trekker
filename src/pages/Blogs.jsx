@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigation } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
+import Loader from '../components/Loader';
 
 const Blogs = () => {
 
     const blogs = useLoaderData();
-    console.log(blogs);
+    const navigation= useNavigation();
+
+    if (navigation.state === 'loading') return <Loader/>
     return (
         <section className="dark:bg-gray-100 dark:text-gray-800">
+
             <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
                 <Link rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
                     <img src={blogs[0].cover_image} alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
